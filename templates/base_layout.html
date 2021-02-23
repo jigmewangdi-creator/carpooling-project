@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% block styles %}
+    {% endblock %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/tonystar/bootstrap-float-label/v4.0.2/bootstrap-float-label.min.css"/>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    -->
+    <style>
+        .errorlist{
+            list-style-type: none;
+            color: #c90d00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid ">
+
+        <div class="row bg-dark navbar-dark py-3">
+            <div class="col">
+                <a class="navbar-brand ml-3" href="#">Logo</a>
+            </div>
+            <div class="col-right">
+                 <nav class="nav-bar navbar-expand-sm">
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span></button>
+                     <ul class="navbar-nav collapse navbar-collapse" id="collapsibleNavbar">
+                        <li class="nav-item mr-5 active"><a class="nav-link" href="/searchs">search</a></li>
+                        <li class="nav-item mr-5 active"><a class="nav-link" href="/offerride">Offer Ride</a></li>
+                        {% if request.user.is_authenticated %}
+                         <li class="nav-item mr-5 active">
+                                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+                        </li>
+                         <li class="nav-item mr-5"> <h3><a class="nav-link" href="#">{{ request.user.username }}</a> </h3></li>
+                         {% else %}
+                             <li class="nav-item mr-5 active">
+                                 <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+                             </li>
+                            <li class="nav-item mr-5 active">
+                                 <a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
+                             </li>
+
+                         {% endif %}
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        {% block heroimage %}
+        {% endblock %}
+
+
+         {% block content %}
+         {% endblock %}
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="row p-3" style="background-color:black;">
+            <div class="col">
+                <span class="m-2"><a href="">About Us</a> </span>
+                <span class="m-2"><a href="">Contact</a> </span>
+                <span class="m-2"><a href="">Terms and Conditions</a> </span>
+            </div>
+            <div class="col">
+                <span class="m-2"><a href="">How it Works</a> </span>
+                <span class="m-2"><a href="">Feedback</a> </span>
+                <span class="m-2"><a href="">Offer ride</a> </span>
+            </div>
+            <div class="col">
+                <span class="m-2"><a href="#" class="fa fa-facebook"></a> </span>
+                <span class="m-2"><a href="#" class="fa fa-twitter"></a></span>
+                <span class="m-2"><a href="#" class="fa fa-youtube"></a> </span>
+                <span class="m-2"><a href="#" class="fa fa-instagram"></a> </span>
+
+            </div>
+
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+
+</html>

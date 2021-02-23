@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <div class="container p-5">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Find a ride</h4>
+                 <div class="form-outline">
+                     <p><label class="form-label" for="typeText1">Going From:</label></p>
+                     <p><input type="text" id="typeText1" class="card-text form-control"></p>
+                     <p><label class="form-label" for="typeText2">Going To:</label></p>
+                     <p><input type="text" id="typeText2" class="form-control"></p>
+                     <p><label class="form-label" for="typeDate">Date:</label></p>
+                     <p><input type="date" id="typeDate" class="form-control"></p>
+                     <p><label class="form-label" for="typeNumber">Number of Passengers:</label></p>
+                     <p><input type="number" id="typeNumber" class="form-control"></p>
+                     <p><button type="button" class="btn-primary">Search</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

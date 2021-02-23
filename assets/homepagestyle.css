@@ -1,0 +1,60 @@
+.home{
+
+
+}
+
+
+.search_form{
+    background: #fff;
+    color: black;
+    border: 1px solid black;
+    padding: 30px;
+    width: 80%;
+    border-radius: 70px;
+    display: flex;
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/carpool.jpg");
+  /*height: 50%*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  max-width: 100%;
+  height: auto;
+  /*padding-top: 350px;*/
+  padding: 250px 0px 15px;
+}
+
+.hero-text {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .d-flex {
+    flex-direction: column;
+  }
+}
